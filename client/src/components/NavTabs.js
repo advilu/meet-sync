@@ -5,6 +5,9 @@ function NavTabs() {
     return (
         <ul>
             <li>
+                <a href="http://localhost:3001/auth/google">Login</a>
+            </li>
+            <li>
                 <Link 
                 to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
                 >
