@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavTabs from './components/NavTabs';
 import landingPage from './components/pages/landing-page';
 import sdrNotes from './components/pages/sdr-notes';
-import managerNotes from './components/pages/manager-notes';
-import archives from './components/pages/archives';
+import ManagerNotes from './components/pages/ManagerNotes/ManagerNotes';
+import Archives from './components/pages/Archives';
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <div>
         <NavTabs />
         <Route exact path="/" component={landingPage} />
-        <Route exact path="/sdrNotes" component={sdrNotes} />
-        <Route exact path="managerNotes" component={managerNotes} />
-        <Route exact path="archives" component={archives} />
+        <Route exact path="/sdr-notes" component={sdrNotes} />
+        <Route exact path="/manager-notes" component={ManagerNotes} />
+        <Route exact path="/archives" component={Archives} />
       </div>
     </Router>
   );
