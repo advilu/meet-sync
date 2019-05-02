@@ -1,0 +1,14 @@
+.topnav {
+    margin: 0;
+    overflow: hidden;
+    color: whitesmoke;
+    display: inline-block;
+    height: 50px;
+    margin-right: 6px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }

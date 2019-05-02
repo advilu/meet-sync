@@ -28,6 +28,85 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
 
+const apiRoutes = require('./routes/apiRoutes');
+app.use('/api', apiRoutes);
+
+
+
+
+//grabbing the survey results
+// const week = document.getElementById("#week");
+// const prioritizing = document.getElementById("#prioritizing");
+// const clarity = document.getElementById("#clarity");
+// const satisfaction = document.getElementById("#satisfaction");
+// const team = document.getElementById("#week");
+// const forward = document.getElementById("#forward");
+// const inclusion = document.getElementById("#inclusion");
+// const wentWell = document.getElementById("#wentWell");
+// const proud = document.getElementById("#proud");
+// const goals = document.getElementById("#goals");
+// const roadblocks = document.getElementById("#roadblocks");
+// const pdCurrent = document.getElementById("#week");
+// const pdUpdate = document.getElementById("#pdUpdate");
+// const selfReview = document.getElementById("#selfReview");
+// const managerFeedback = document.getElementById("#managerFeedback");
+// const stretch = document.getElementById("#stretch");
+// const funView = document.getElementById("#funView");
+// const desired = document.getElementById("#desired");
+// const strength = document.getElementById("#strength");
+// const submitButton = document.getElementById("#submitButton");
+// const text = document.getElementsByTagName("input");
+
+// submitButton.onclick = newSurvey = (event) => {
+//     event.preventDefault;
+    
+//     if (!text.val().trim()) {
+//         return;
+//     }
+
+
+// }
+
+const isManager = require("./middlewares/isManager");
+const requireLogin = require("./middlewares/reqiureLogin");
+//express routes below for the survey
+
+// POST route for saving a new post
+app.post("/survey", requireLogin, (req, res) => {
+    console.log(req.body.params);
+    db.Post.create({
+        
+      }).then((dbPost) => {
+          res.json(dbPost);
+        });
+});
+
+// Get route for retrieving a single post
+app.get("/survey/:id", requireLogin, (req, res) => {
+    db.Post.findOne({
+        where: {
+            id: req.params.id   //maybe use req.user?
+        }.then((dbPost) => {
+            res.json(dbPost);
+        })
+    })
+});
+
+// DELETE route for deleting posts
+app.delete("/survey/:id", requireLogin, isManager, function(req, res) {
+    db.Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+
+
+
+
 db.sequelize.sync({ force: false }).then(() => {
     app.listen(port, () => console.log(`We hear you on port ${port}!`));
 });

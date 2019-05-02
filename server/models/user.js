@@ -5,7 +5,13 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
-        googleId: DataTypes.STRING
+        googleId: DataTypes.STRING,
+        isManager: DataTypes.BOOLEAN
     });
+
+    User.associate = (models) => {
+        User.hasMany(models.Survey);
+    };
+
     return User;
 };

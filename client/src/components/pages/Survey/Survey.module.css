@@ -1,0 +1,15 @@
+.place {
+    background-color: rgb(4, 100, 133);
+    /* margin-top: 0; */
+}
+
+.input {
+    height: 100px;
+    width: 500px;
+}
+
+.submit {
+    height: 40px;
+    width:80px;
+    /* display: inline-block; */
+}
