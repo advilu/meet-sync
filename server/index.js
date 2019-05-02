@@ -68,11 +68,12 @@ app.use('/api', apiRoutes);
 // }
 
 const isManager = require("./middlewares/isManager");
-const requireLogin = require("./middlewares/reqiureLogin");
+const requireLogin = require("./middlewares/requireLogin");
+const viewOwnReports = require("./middlewares/viewOwnReports");
 //express routes below for the survey
 
 // POST route for saving a new post
-app.post("/survey", requireLogin, (req, res) => {
+app.post("/survey", requireLogin,  (req, res) => {
     console.log(req.body.params);
     db.Post.create({
         
@@ -82,7 +83,7 @@ app.post("/survey", requireLogin, (req, res) => {
 });
 
 // Get route for retrieving a single post
-app.get("/survey/:id", requireLogin, (req, res) => {
+app.get("/survey/:id", requireLogin, viewOwnReports, (req, res) => {
     db.Post.findOne({
         where: {
             id: req.params.id   //maybe use req.user?
