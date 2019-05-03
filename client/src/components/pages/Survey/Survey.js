@@ -1,108 +1,125 @@
-import React from "react";
+import React, { Component } from "react";
 import styles from "./Survey.module.css";
+import axios from 'axios';
+import SurveyQuestionNumerical from "./SurveyQuestionNumerical";
+import SurveyQuestionShort from "./SurveyQuestionShort";
+import Questions from "./Questions";
 
-function Survey(props) {
-    return (
+class Survey extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            week: '',
+            clarity: '',
+            satisfaction: '',
+            team: '',
+            forward: '',
+            inclusion: '',
+            wentWell: '',
+            proud: '',
+            goals: '',
+            roadblocks: '',
+            pdCurrent: '',
+            pdUpdate: '',
+            selfReview: '',
+            managerFeedback: '',
+            stretch: ''
+        }
+    };
+
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const name = event.target.name;
+        let value = event.target.value;
+        // Updating the input's state
+        this.setState({
+            [name]: value
+        });
+    };
+
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     if (this.state) {
+    //       API.saveForm({
+    //         week: this.state.week,
+    //         clarity: this.state.clarity,
+    //         satisfaction: this.state.satisfaction,
+    //         team: this.state.team,
+    //         forward: this.state.forward,
+    //         inclusion: this.state.inclusion,
+    //         wentWell: this.state.wentWell,
+    //         proud: this.state.proud,
+    //         goals: this.state.goals,
+    //         roadblocks: this.state.roadblocks,
+    //         pdCurrent: this.state.pdCurrent,
+    //         pdUpdate: this.state.pdUpdate,
+    //         selfReview: this.state.selfReview,
+    //         managerFeedback: this.state.managerFeedback,
+    //         stretch: this.state.stretch
+    //       })
+    //         .then(res => this.loadBooks())
+    //         .catch(err => console.log(err));
+    //     }
+    //   };
+
+      saveForm = event => {
+          event.preventDefault();
+          
+          const data = {...this.state};
+          console.log("data", data);
+        axios.post("/survey", data).then(function(res) {
+            console.log("got it back")
+            console.log(res.data);
+        });
+      }
+    
+    
+
+    render() {
+        console.log(this.state);
+        return (
             <form className={styles.place}>
-                <h4>Weekly--On a scale of 1-10:</h4>
                 <ol>
-                    <li>
-                        How happy are you with how the week went?
-                    </li>
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <input type="radio" className={styles.input} id="week" value="1" />
-                    <li>
-                        How clear do you feel about what's expected of you?
-                    </li>
-                    <input type="radio" className={styles.input} id="clarity"/>
-                    <li>
-                        Your satisfaction level with the decision power and/or the amount of direction you recieve?
-                    </li>
-                    <input type="radio" className={styles.input} id="satisfaction"/>
-                    <li>
-                        How much you feel your work makes a difference for the team and company?
-                    </li>
-                    <input type="radio" className={styles.input} id="team"/>
-                    <li>
-                        How much you feel you're making a small step forward each week?
-                    </li>
-                    <input type="radio" className={styles.input} id="forward"/>
-                    <li>
-                        Your level of connection to the team and your inclusion in the things which you want to be included?
-                    </li>
-                    <input type="radio" className={styles.input} id="inclusion"/>
+                    <h3>On a scale of 1-10:</h3>
+                     {
+                         Questions.filter((element, index) => (index <= 5)).map((element, index) => {
+                            return <SurveyQuestionNumerical key = {index} question = {element.question} name = {element.tag} onChange = {this.handleInputChange} />
+                         })
+                     }
                 </ol>
 
                 <ol>
-                    <h4>Weekly short answer:</h4>
-                    <li>
-                        What went particularly well this week?
-                    </li>
-                    <input type="text" className={styles.input} id="wentWell"/>
-                    <li>
-                        Last week I was proud of my accomplishment in:
-                    </li>
-                    <input type="text" className={styles.input} id="proud"/>
-                    <li>
-                        This coming week I want to complete:
-                    </li>
-                    <input type="text" className={styles.input} id="goals"/>
-                    <li>
-                        Roadblocks, concerns, and items that need input:
-                    </li>
-                    <input type="text" className={styles.input} id="roadblocks"/>
-                    <li>
-                        Personal Development skill I am working on:
-                    </li>
-                    <input type="text" className={styles.input} id="pdCurrent"/>
-                    <li>
-                        Personal Development skill update from last week:
-                    </li>
-                    <input type="text" className={styles.input} id="pdUpdate"/>
-                    <li>
-                        Something I think I did well, something I could improve, and what my manager thinks I did well or could improve:
-                    </li>
-                    <input type="text" className={styles.input} id="selfReview"/>
-                    <li>
-                        What I think my manager did well or could improve:
-                    </li>
-                    <input type="text" className={styles.input} id="managerFeedback"/>
-                    <li>
-                        What stretch question would you like to be asked?
-                    </li>
-                    <input type="text" className={styles.input} id="stretch"/>
+                    <h3>Short answer:</h3>
+                    {
+                         Questions.filter((element, index) => (index > 5)).map((element, index) => {
+                            return <SurveyQuestionShort key = {index} question = {element.question} name = {element.tag} onChange = {this.handleInputChange} />
+                         })
+                     }
                 </ol>
 
-                <ol>
+                {/* <ol>
                     <h4>Qarterly short answer:</h4>
                     <li>
                         What area of your work is most fun? Least fun?
                     </li>
-                    <input type="text" className={styles.input} id="funView"/>
+                    <textarea rows="10" style={{width:"65%"}} type="text" onChange={this.handleInputChange} className={styles.input} name="funView"/>
                     <li>
                         What do you wish you could do more and less of?
                     </li>
-                    <input type="text" className={styles.input} id="desired"/>
+                    <textarea rows="10" style={{width:"65%"}} type="text" onChange={this.handleInputChange} className={styles.input} name="desired"/>
                     <li>
                         How do you go about prioritizing your work?
                     </li>
-                    <input type="text" className={styles.input} id="prioritizing"/>
+                    <textarea rows="10" style={{width:"65%"}} type="text" onChange={this.handleInputChange} className={styles.input} name="prioritizing"/>
                     <li>
                         What would you say your biggest super strength is?  What percentage of the time do you feel you use this?  How can we increase this?
                     </li>
-                    <input type="text" className={styles.input} id="strength"/>
-                </ol>
-                <input type="submit" value="Submit" id="submitButton" className={styles.submit} />
+                    <textarea rows="10" style={{width:"65%"}} type="text" onChange={this.handleInputChange} className={styles.input} name="strength"/>
+                </ol> */}
+                <input onClick={this.saveForm} type="button" value="Submit" id="submitButton" name="submitButton" className={styles.submit} />
             </form>
-    )
+        )
+    }
 }
 
 export default Survey;

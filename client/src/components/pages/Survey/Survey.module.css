@@ -3,13 +3,33 @@
     /* margin-top: 0; */
 }
 
-.input {
+.textarea {
     height: 100px;
     width: 500px;
+    margin-bottom: 10px;
 }
+
+/* #week, #clarity, #satisfaction, #team, #forward, #inclusion {
+    height: 40px;
+    width: 80px;
+} */
 
 .submit {
     height: 40px;
     width:80px;
     /* display: inline-block; */
+    margin: 0, 0, 10px, 20px;
+}
+
+h3, ol {
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+option {
+    height: 8%;
+    width: 12%;
 }

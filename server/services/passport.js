@@ -55,6 +55,7 @@ passport.use(
         callbackURL: "/auth/google/callback",
         proxy: true
     }, async (accessToken, refreshToken, profile, done) => {
+        console.log(profile)
         const existingUser = await db.User.findOne({
             where: {
                 googleId: profile.id
@@ -67,7 +68,10 @@ passport.use(
             console.log(existingUser)
             done(null, existingUser);
         } else {
-            const user = await db.User.create({ googleId: profile.id });
+            const user = await db.User.create({ 
+                googleId: profile.id, 
+                name: profile.name.givenName 
+            });
             done(null, user);
         }
     })

@@ -5,12 +5,21 @@ const cookieSession = require('cookie-session');
 const routes = require("./routes");
 const app = express();
 const port = process.env.PORT || 3001;
+const isManager = require("./middlewares/isManager");
+const requireLogin = require("./middlewares/requireLogin");
+const viewOwnReports = require("./middlewares/viewOwnReports");
 const db = require("./models");
 
 require('./services/passport');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 app.use(
     cookieSession({
         // the maxAge setting tells the browser how long it will take before this cookie expires
@@ -26,10 +35,29 @@ app.use(
 // once these functions run, our User model instance will be added to req.user
 app.use(passport.initialize());
 app.use(passport.session());
+
+// POST route for saving a new post
+app.post("/survey", requireLogin,  (req, res) => {
+    console.log(req.body);
+    /////////////-->here use Sequelize to save req.body to mysql;
+    db.Survey.create(req.body).then((result) => {
+        //   console.log("read this:", result);
+          res.json(result);
+          
+        });
+});
+
+app.get("/give/me/something", function(req, res){
+    res.json({message: 'something'})
+})
+
+
 app.use(routes);
 
 const apiRoutes = require('./routes/apiRoutes');
 app.use('/api', apiRoutes);
+
+
 
 
 
@@ -67,20 +95,9 @@ app.use('/api', apiRoutes);
 
 // }
 
-const isManager = require("./middlewares/isManager");
-const requireLogin = require("./middlewares/requireLogin");
-const viewOwnReports = require("./middlewares/viewOwnReports");
+
 //express routes below for the survey
 
-// POST route for saving a new post
-app.post("/survey", requireLogin,  (req, res) => {
-    console.log(req.body.params);
-    db.Post.create({
-        
-      }).then((dbPost) => {
-          res.json(dbPost);
-        });
-});
 
 // Get route for retrieving a single post
 app.get("/survey/:id", requireLogin, viewOwnReports, (req, res) => {
@@ -105,9 +122,6 @@ app.delete("/survey/:id", requireLogin, isManager, function(req, res) {
   });
 
 
-
-
-
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     app.listen(port, () => console.log(`We hear you on port ${port}!`));
 });

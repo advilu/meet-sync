@@ -5,7 +5,12 @@
     display: inline-block;
     height: 50px;
     margin-right: 6px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+}
+
+.topnav a {
+    text-decoration: none;
 }
 
 .topnav a:hover {

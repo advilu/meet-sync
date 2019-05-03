@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         googleId: DataTypes.STRING,
+        name: DataTypes.STRING,
         isManager: DataTypes.BOOLEAN
     });
 

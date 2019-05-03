@@ -6,7 +6,7 @@ module.exports = {
     getSurveys: (req, res) => {
         db.Survey.find({
             where: {
-                id: req.user.id   //maybe use req.user?
+                id: req.user.id
             }.then((dbPost) => {
                 res.json(dbPost);
             })
