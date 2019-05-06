@@ -1,7 +1,7 @@
 {
-  "name": "meet-sync",
+  "name": "y",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server/index.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -32,5 +32,13 @@
   },
   "engines": {
     "node": "10.15.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/advilu/meet-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/advilu/meet-sync/issues"
+  },
+  "homepage": "https://github.com/advilu/meet-sync#readme"
 }
