@@ -12,7 +12,7 @@ const db = require("./models");
 
 require('./services/passport');
 
-app.use(express.static('./client/build'));
+app.use(express.static('./client'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(function(req, res, next) {
