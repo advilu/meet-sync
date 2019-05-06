@@ -41,21 +41,17 @@ class LandingPage extends Component {
                     Welcome, {this.state.name}.
                 </div>
                 <div className={styles.links}>
-                <CreateSeries>
                 <Link
                         to="/create-series" className={window.location.pathname === "/create-series" ? "nav-link active" : "nav-link"}
                     >
                         Create a new 1:1 series.
                 </Link>
-                </CreateSeries>
                 <br />
-                <ArchivedManagerMeetings>
                 <Link
                         to="/archived-manager-meetings" className={window.location.pathname === "/archived-meetings" ? "nav-link active" : "nav-link"}
                     >
                         View your archived meetings.
                 </Link>
-                </ArchivedManagerMeetings>
                 </div>
             </div>
         )
