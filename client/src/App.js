@@ -7,9 +7,9 @@ import Survey from './components/pages/Survey/Survey';
 import SdrNotes from './components/pages/SdrNotes/SdrNotes';
 import ManagerNotes from './components/pages/ManagerNotes/ManagerNotes';
 import Archives from './components/pages/Archives/Archives';
-// import MeetingPrep from './components/pages/MeetingPrep/MeetingPrep';
-// import CreateSeries from './components/pages/CreateSeries/CreateSeries';
-// import ArchivedManagerMeetings from './components/pages/ArchivedManagerMeetings/ArchivedManagerMeetings';
+import MeetingPrep from './components/pages/MeetingPrep/MeetingPrep';
+import CreateSeries from './components/pages/CreateSeries/CreateSeries';
+import ArchivedManagerMeetings from './components/pages/ArchivedManagerMeetings/ArchivedManagerMeetings';
 import axios from 'axios';
 
 function App() {
@@ -22,23 +22,13 @@ function App() {
         <Route exact path="/sdr-notes" component={SdrNotes} />
         <Route exact path="/manager-notes" component={ManagerNotes} />
         <Route exact path="/archives" component={Archives} />
+        <Route exact path="/meeting-prep" component={MeetingPrep} />
+        <Route exact path="/create-series" component={CreateSeries} />
+        <Route exact path="/archived-manager-meetings" component={ArchivedManagerMeetings} />
       </div>
     </Router>
   );
 };
-
-// function PageLinks() {
-//   return (
-//     <Router>
-//       <div>
-//         <LandingPage />
-//         <Route exact path="/MeetingPrep" component={MeetingPrep} />
-//         <Route exact path="/CreateSeries" component={CreateSeries} />
-//         <Route exact path="/ArchivedManagerMeetings" component={ArchivedManagerMeetings} />
-//       </div>
-//     </Router>
-//   )
-// }
 
 //manage state
 // import React, { Component } from 'react';
