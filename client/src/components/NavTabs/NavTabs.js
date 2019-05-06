@@ -19,7 +19,7 @@ function NavTabs() {
                     </Link>
                 </Home>
                 <NavLogin>
-                    <a href="http://localhost:3001/auth/google" className={styles.topnav}>Login</a>
+                    <a href="/auth/google" className={styles.topnav}>Login</a>
                 </NavLogin>
                 <NavSurvey>
                     <Link
