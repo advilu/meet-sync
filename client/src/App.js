@@ -7,6 +7,10 @@ import Survey from './components/pages/Survey/Survey';
 import SdrNotes from './components/pages/SdrNotes/SdrNotes';
 import ManagerNotes from './components/pages/ManagerNotes/ManagerNotes';
 import Archives from './components/pages/Archives/Archives';
+import ManagerForm from './components/pages/ManagerForm/ManagerForm';
+import MeetingPrep from './components/pages/MeetingPrep/MeetingPrep';
+import CreateSeries from './components/pages/CreateSeries/CreateSeries';
+import ArchivedManagerMeetings from './components/pages/ArchivedManagerMeetings/ArchivedManagerMeetings';
 import axios from 'axios';
 
 function App() {
@@ -23,6 +27,19 @@ function App() {
     </Router>
   );
 };
+
+function PageLinks() {
+  return (
+    <Router>
+      <div>
+        <LandingPage />
+        <Route exact path="/ManagerForm" component={ManagerForm} />
+        <Route exact path="/CreateSeries" component={CreateSeries} />
+        <Route exact path="/ArchivedManagerMeetings" component={ArchivedManagerMeetings} />
+      </div>
+    </Router>
+  )
+}
 
 //manage state
 // import React, { Component } from 'react';
@@ -89,8 +106,9 @@ class FormComponent extends Component {
   
 // }
 componentDidMount() {
-  axios.get('/users').then(function(res){
+  axios.get('/users').then(res => {
     res.data({user: res.data});
+    console.log(res.data);
   })
 }
 

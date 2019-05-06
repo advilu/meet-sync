@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import styles from "./LandingPage.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import CreateSeries from '../CreateSeries/CreateSeries';
+// import ManagerForm from '../ManagerForm/ManagerForm';
+// import MeetingPrep from '../MeetingPrep/MeetingPrep';
+import ArchivedManagerMeetings from '../ArchivedManagerMeetings/ArchivedManagerMeetings';
 // import Card from "../../Card"
 
 // const Div = styled.div`
@@ -13,15 +19,15 @@ class LandingPage extends Component {
         name: ""
     };
     componentDidMount() {
-        axios.get('http://localhost:3001/give/me/something')
-        .then(response => {
-            console.log(response.data)
-            this.setState({
-                ...this.state,
-                name: response.data.message    
+        axios.get('/users')
+            .then(response => {
+                // console.log(response.data)
+                this.setState({
+                    ...this.state,
+                    name: response.data.name
+                })
             })
-        })
-    }
+    };
     // handleSomething = (newName) => {
     //     this.setState({
     //         ...this.state,
@@ -31,8 +37,27 @@ class LandingPage extends Component {
 
     render() {
         return (
-            <div className={styles.welcome}>
-                Welcome, {this.state.name}.
+            <div className={styles.page}>
+                <div className={styles.welcome}>
+                    Welcome, {this.state.name}.
+                </div>
+                <div className={styles.links}>
+                {/* <CreateSeries> */}
+                <Link
+                        to="/create-series" className={window.location.pathname === "/create-series" ? "nav-link active" : "nav-link"}
+                    >
+                        Create a new 1:1 series.
+                </Link>
+                {/* </CreateSeries> */}
+                <br />
+                <ArchivedManagerMeetings>
+                <Link
+                        to="/archived-manager-meetings" className={window.location.pathname === "/archived-meetings" ? "nav-link active" : "nav-link"}
+                    >
+                        View your archived meetings.
+                </Link>
+                </ArchivedManagerMeetings>
+                </div>
             </div>
         )
     }

@@ -1,4 +1,22 @@
 .welcome {
     font-family: 'Arial Narrow', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+.page {
+    background-color: rgb(4, 100, 133);
+}
+
+.links {
+    font-family: 'Arial Narrow', sans-serif;
     font-size: 18px;
 }
+.links a {
+    text-decoration: none;
+}
+
+.links a:hover {
+    background-color: #ddd;
+    color: black;
+  }
