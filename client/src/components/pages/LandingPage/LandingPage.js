@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateSeries from '../CreateSeries/CreateSeries';
-// import ManagerForm from '../ManagerForm/ManagerForm';
 // import MeetingPrep from '../MeetingPrep/MeetingPrep';
 import ArchivedManagerMeetings from '../ArchivedManagerMeetings/ArchivedManagerMeetings';
 // import Card from "../../Card"
