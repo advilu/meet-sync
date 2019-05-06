@@ -123,6 +123,6 @@ app.delete("/survey/:id", requireLogin, isManager, function(req, res) {
   });
 
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(port, () => console.log(`We hear you on port ${port}!`));
 });

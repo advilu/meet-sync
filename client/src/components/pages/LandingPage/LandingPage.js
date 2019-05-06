@@ -41,13 +41,13 @@ class LandingPage extends Component {
                     Welcome, {this.state.name}.
                 </div>
                 <div className={styles.links}>
-                {/* <CreateSeries> */}
+                <CreateSeries>
                 <Link
                         to="/create-series" className={window.location.pathname === "/create-series" ? "nav-link active" : "nav-link"}
                     >
                         Create a new 1:1 series.
                 </Link>
-                {/* </CreateSeries> */}
+                </CreateSeries>
                 <br />
                 <ArchivedManagerMeetings>
                 <Link
