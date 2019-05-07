@@ -15,14 +15,20 @@
 } */
 
 .submit {
-    height: 40px;
-    width:80px;
+    height: 20px;
+    width: 80px;
     /* display: inline-block; */
     margin: 0, 0, 10px, 20px;
+    position: absolute;
+    left: 40px;
 }
 
 h3, ol {
     margin: 0;
+}
+
+.short {
+    margin-bottom: 15px;
 }
 
 li {
@@ -32,4 +38,10 @@ li {
 option {
     height: 8%;
     width: 12%;
+}
+
+.welcome {
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    text-align: center;
 }

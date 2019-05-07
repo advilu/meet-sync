@@ -5,7 +5,6 @@ import Home from "./Home/Home";
 import NavLogin from "./NavLogin/NavLogin";
 import NavSurvey from "./NavSurvey/NavSurvey";
 import ManagerNotes from "./ManagerNotes/ManagerNotes";
-import SdrNotes from "./SdrNotes/SdrNotes";
 import Archives from "./Archives/Archives";
 
 function NavTabs() {
@@ -29,14 +28,6 @@ function NavTabs() {
                         Survey
                 </Link>
                 </NavSurvey>
-                <SdrNotes>
-                    <Link
-                        to="/sdr-notes"
-                        className={window.location.pathname === "/sdr-notes" ? "nav-link active" : "nav-link"}
-                    >
-                        SDR Notes
-                </Link>
-                </SdrNotes>
                 <ManagerNotes>
                     <Link
                         to="/manager-notes"

@@ -1,4 +1,11 @@
 .notes {
-    background-color: blue;
-    color: white;
+    border: 2px solid whitesmoke;
+    width: 40%;
+    padding: 10px;
+}
+
+.welcome {
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    text-align: center;
 }

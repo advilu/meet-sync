@@ -1,3 +1,23 @@
 .holder {
     
 }
+
+.welcome {
+    font-family: 'Arial Narrow', sans-serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+h3 {
+    margin: 15px;
+}
+
+.namesList {
+    margin-left: 15px;
+}
+
+.byCity {
+    border: 2px solid whitesmoke;
+    width: 40%;
+    padding: 10px;
+}

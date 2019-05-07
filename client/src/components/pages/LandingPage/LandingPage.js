@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CreateSeries from '../CreateSeries/CreateSeries';
 // import MeetingPrep from '../MeetingPrep/MeetingPrep';
-import ArchivedManagerMeetings from '../ArchivedManagerMeetings/ArchivedManagerMeetings';
+import Archives from '../Archives/Archives';
 // import Card from "../../Card"
 
 // const Div = styled.div`
@@ -46,12 +46,53 @@ class LandingPage extends Component {
                     >
                         Create a new 1:1 series.
                 </Link>
-                <br />
+                <hr />
                 <Link
-                        to="/archived-manager-meetings" className={window.location.pathname === "/archived-meetings" ? "nav-link active" : "nav-link"}
+                        to="/archives" className={window.location.pathname === "/archives" ? "nav-link active" : "nav-link"}
                     >
                         View your archived meetings.
                 </Link>
+                <hr />
+                <div className={styles.roster}>
+                    <h3>
+                    Griffin
+                    </h3>
+                    Standing: Good <br />
+                    Morale: Fully Engaged <br />
+                    Career Path: Sales <br />
+                    Quota Status: 76-99% <br />
+                    On the Board/Quota: 13/17 <br />
+                </div>
+                <div className={styles.roster}>
+                    <h3>
+                    Mick
+                    </h3>
+                    Standing: Good <br />
+                    Morale: Fully Engaged <br />
+                    Career Path: Sales <br />
+                    Quota Status: 76-99% <br />
+                    On the Board/Quota: 14/17 <br />
+                </div>
+                <div className={styles.roster}>
+                    <h3>
+                    Joe
+                    </h3>
+                    Standing: Good <br />
+                    Morale: Fully Engaged <br />
+                    Career Path: BD <br />
+                    Quota Status: 76-99% <br />
+                    On the Board/Quota: 13/17 <br />
+                </div>
+                <div className={styles.roster}>
+                    <h3>
+                    Evan
+                    </h3>
+                    Standing: Good <br />
+                    Morale: Fully Engaged <br />
+                    Career Path: Unsure <br />
+                    Quota Status: Not on Quota <br />
+                    On the Board/Quota: 2/7 <br />
+                </div>
                 </div>
             </div>
         )

@@ -9,6 +9,7 @@ const isManager = require("./middlewares/isManager");
 const requireLogin = require("./middlewares/requireLogin");
 const viewOwnReports = require("./middlewares/viewOwnReports");
 const db = require("./models");
+const router = require('express').Router();
 
 require('./services/passport');
 
@@ -47,6 +48,8 @@ app.post("/survey", requireLogin,  (req, res) => {
           
         });
 });
+
+router.get("/", requireLogin);
 
 app.get("/give/me/something", function(req, res){
     res.json({message: 'something'})

@@ -4,8 +4,13 @@ import styles from "./ManagerNotes.module.css";
 
 function ManagerNotes(props) {
     return(
-        <div className={styles.notes}>
-            ManagerNotes go here.
+        <div>
+            <div className={styles.welcome}>
+                Manager Notes
+            </div>
+            <div className={styles.notes}>
+                Taking notes, checking them twice.
+            </div>
         </div>
     )
 }

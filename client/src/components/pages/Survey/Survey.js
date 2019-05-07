@@ -62,42 +62,50 @@ class Survey extends Component {
     //     }
     //   };
 
-      saveForm = event => {
-          event.preventDefault();
-          
-          const data = {...this.state};
-          console.log("data", data);
-        axios.post("/survey", data).then(function(res) {
+    saveForm = event => {
+        event.preventDefault();
+
+        const data = { ...this.state };
+        console.log("data", data);
+        axios.post("/survey", data).then(function (res) {
             console.log("got it back")
             console.log(res.data);
         });
-      }
-    
-    
+    }
+
+    onSubmit = event => {
+        
+    }
+
+
 
     render() {
         console.log(this.state);
         return (
-            <form className={styles.place}>
-                <ol>
-                    <h3>On a scale of 1-10:</h3>
-                     {
-                         Questions.filter((element, index) => (index <= 5)).map((element, index) => {
-                            return <SurveyQuestionNumerical key = {index} question = {element.question} name = {element.tag} onChange = {this.handleInputChange} />
-                         })
-                     }
-                </ol>
+            <div>
+            <div className={styles.welcome}>
+                Survey
+            </div>
+                <form className={styles.place}>
+                    <ol>
+                        <h3>On a scale of 1-10:</h3>
+                        {
+                            Questions.filter((element, index) => (index <= 5)).map((element, index) => {
+                                return <SurveyQuestionNumerical key={index} question={element.question} name={element.tag} onChange={this.handleInputChange} />
+                            })
+                        }
+                    </ol>
+                    <br />
+                    <ol>
+                        <h3 className={styles.short}>Short answer:</h3>
+                        {
+                            Questions.filter((element, index) => (index > 5)).map((element, index) => {
+                                return <SurveyQuestionShort key={index} question={element.question} name={element.tag} onChange={this.handleInputChange} />
+                            })
+                        }
+                    </ol>
 
-                <ol>
-                    <h3>Short answer:</h3>
-                    {
-                         Questions.filter((element, index) => (index > 5)).map((element, index) => {
-                            return <SurveyQuestionShort key = {index} question = {element.question} name = {element.tag} onChange = {this.handleInputChange} />
-                         })
-                     }
-                </ol>
-
-                {/* <ol>
+                    {/* <ol>
                     <h4>Qarterly short answer:</h4>
                     <li>
                         What area of your work is most fun? Least fun?
@@ -116,8 +124,9 @@ class Survey extends Component {
                     </li>
                     <textarea rows="10" style={{width:"65%"}} type="text" onChange={this.handleInputChange} className={styles.input} name="strength"/>
                 </ol> */}
-                <input onClick={this.saveForm} type="button" value="Submit" id="submitButton" name="submitButton" className={styles.submit} />
-            </form>
+                    <input onClick={this.saveForm} type="button" value="Submit" id="submitButton" name="submitButton" className={styles.submit} />
+                </form>
+            </div>
         )
     }
 }

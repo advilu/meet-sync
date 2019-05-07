@@ -10,6 +10,7 @@ import Archives from './components/pages/Archives/Archives';
 import MeetingPrep from './components/pages/MeetingPrep/MeetingPrep';
 import CreateSeries from './components/pages/CreateSeries/CreateSeries';
 import ArchivedManagerMeetings from './components/pages/ArchivedManagerMeetings/ArchivedManagerMeetings';
+import ErrorPage from './components/pages/ErrorPage';
 import axios from 'axios';
 
 function App() {
@@ -25,13 +26,13 @@ function App() {
         <Route exact path="/meeting-prep" component={MeetingPrep} />
         <Route exact path="/create-series" component={CreateSeries} />
         <Route exact path="/archived-manager-meetings" component={ArchivedManagerMeetings} />
+        <Route exact path="/error-page" component={ErrorPage} />
       </div>
     </Router>
   );
 };
 
 //manage state
-// import React, { Component } from 'react';
 
 class FormComponent extends Component {
   constructor () {
@@ -52,6 +53,17 @@ class FormComponent extends Component {
       selfReview: '',
       managerFeedback: '',
       stretch: ''
+    }
+  }
+
+  //validate login before allowing user to access page 
+
+  checkLogin = (props) => {
+    console.log(this.props.auth);
+    if(!this.props.auth) {
+      Router.get("/error-page")
+    } else {
+      Router.get("/")
     }
   }
   
@@ -94,6 +106,8 @@ class FormComponent extends Component {
 //     });
   
 // }
+
+
 componentDidMount() {
   axios.get('/users').then(res => {
     res.data({user: res.data});

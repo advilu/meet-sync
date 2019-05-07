@@ -1,6 +1,6 @@
 .welcome {
     font-family: 'Arial Narrow', sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
 }
 
@@ -11,6 +11,8 @@
 .links {
     font-family: 'Arial Narrow', sans-serif;
     font-size: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 .links a {
     text-decoration: none;
@@ -19,4 +21,10 @@
 .links a:hover {
     background-color: #ddd;
     color: black;
+  }
+
+  .roster {
+      border: 2px solid whitesmoke;
+      width: 40%;
+      padding: 10px;
   }

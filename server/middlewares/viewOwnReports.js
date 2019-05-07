@@ -7,3 +7,5 @@ const viewOwnReport = (req, res, next, err) => {
 };
 
 module.exports = viewOwnReport;
+
+//middlewares are for permission for retrieving data; use state for page viewing validation
