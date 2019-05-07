@@ -28,3 +28,9 @@
       width: 40%;
       padding: 10px;
   }
+
+.picture {
+    position: absolute;
+    right: 15px;
+    top: 165px;
+}

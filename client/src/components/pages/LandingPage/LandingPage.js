@@ -94,6 +94,9 @@ class LandingPage extends Component {
                     On the Board/Quota: 2/7 <br />
                 </div>
                 </div>
+                <div className={styles.picture}>
+                    <img src="https://www.123organize.com/wp-content/uploads/2017/03/google-calendar-schedule-640x456.jpg" alt="calendar"/>
+                </div>
             </div>
         )
     }
