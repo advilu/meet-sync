@@ -95,7 +95,9 @@ class LandingPage extends Component {
                 </div>
                 </div>
                 <div className={styles.picture}>
-                    <img src="https://www.123organize.com/wp-content/uploads/2017/03/google-calendar-schedule-640x456.jpg" alt="calendar"/>
+                    {/* <img src="https://www.123organize.com/wp-content/uploads/2017/03/google-calendar-schedule-640x456.jpg" alt="calendar"/> */}
+
+                    
                 </div>
             </div>
         )

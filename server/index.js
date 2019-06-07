@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
 app.use(
     cookieSession({
         // the maxAge setting tells the browser how long it will take before this cookie expires
-        // here I set it to 30 days. It has to be passed as milliseconds
+        // here I set it to 30 minutes (passed as milliseconds)
         maxAge: 30 * 60 * 1000,
         // this keys setting will be used to sign and encrypt our cookie
         // we can specify multiple keys here
