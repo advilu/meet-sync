@@ -4,6 +4,13 @@ Preliminary version (in dev) deployed at https://agile-river-97476.herokuapp.com
 Purpose:
 To enable managers and their direct reports to prepare for, track, and record their 1:1 meetings, as well as metrics around performance and career development.
 
+Technologies:
+OAuth
+SQL
+Sequelize
+Zoom SDK (in progress)
+Google Calendar (in progress)
+
 UX:
 The current version is built out from the manager perspective. 
 
