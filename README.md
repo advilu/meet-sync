@@ -14,7 +14,9 @@ Google Calendar (in progress)
 UX:
 The current version is built out from the manager perspective. 
 
-User is first directed to a home page where they must log in (via OAuth) to get data.  Current data is hardcoded as an example.  This includes a list of direct reports, with their corresponding data points for at-a-glance viewing.  Above are two links, one for the creation of a new 1:1 series, and the other for viewing archived meetings.
+User is first directed to a home page where they must log in (via OAuth) to get data.  The name after the welcome message at the top of the page is from the user's Google account.  
+
+The data currently present is hardcoded as an example.  This includes a list of direct reports, with several of their corresponding data points for at-a-glance viewing.  Above are two links, one for the creation of a new 1:1 series, and the other for viewing archived meetings.
 
 ![Screen Shot 2019-06-09 at 6 51 52 PM](https://user-images.githubusercontent.com/46614197/59167821-073d1480-8ae8-11e9-8807-96698e206465.png)
 
